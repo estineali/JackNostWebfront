@@ -51,13 +51,14 @@ function App() {
       fontWeight: "lighter",
       marginTop: 0,
       marginBottom: 50,
+      textAlignLast: "center",
     },
     submissionContainer: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyItems: "center",
-      backgroundColor: "#93939350",
+      // backgroundColor: "#93939350",
       borderRadius: 12,
       padding: 20,
     },
@@ -144,7 +145,7 @@ function App() {
           fontFamily: "Ubuntu",
         }}
       >
-        NOSTAGAINNETWORK: {""}
+        NOSTAGAINNETWORK <br />
         <a href="https://nostagain.ca" style={{ color: "#fff" }}>
           {" "}
           Website
