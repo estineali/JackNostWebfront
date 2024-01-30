@@ -138,17 +138,33 @@ function App() {
       <text
         style={{
           textAlign: "center",
-          paddingTop: "15%",
-          fontSize: 20,
+          paddingTop: "5%",
+          fontSize: 12,
           color: "#fff",
+          fontFamily: "Ubuntu",
         }}
       >
-        NOSTAGAINNETWORK {""}
-        <a href="https://nostagain.ca"> Website</a>
+        NOSTAGAINNETWORK: {""}
+        <a href="https://nostagain.ca" style={{ color: "#fff" }}>
+          {" "}
+          Website
+        </a>
         {" | "}
-        <a href="https://twitter.com/Nostagain">X Page</a>
+        <a
+          href="https://nostagain.ca/2024/01/16/program2024/"
+          style={{ color: "#fff" }}
+        >
+          {" "}
+          Symposium 2024 Programming
+        </a>
         {" | "}
-        <a href="https://www.youtube.com/@nostagain">YouTube</a>
+        <a href="https://twitter.com/Nostagain" style={{ color: "#fff" }}>
+          Twitter
+        </a>
+        {" | "}
+        <a href="https://www.youtube.com/@nostagain" style={{ color: "#fff" }}>
+          YouTube
+        </a>
       </text>
     </div>
   );
