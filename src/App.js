@@ -51,6 +51,22 @@ function App() {
       marginTop: 0,
       marginBottom: 50,
     },
+    submissionContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyItems: "center",
+      backgroundColor: "#93939350",
+      borderRadius: 12,
+      padding: 20,
+    },
+    prompt: {
+      fontFamily: "Ubuntu",
+      fontStyle: "italic",
+      color: "#fff",
+      fontSize: 14,
+      fontWeight: "lighter",
+    },
   };
 
   useEffect(() => {
@@ -80,26 +96,8 @@ function App() {
         nostalgize.
       </h5>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyItems: "center",
-          backgroundColor: "#93939350",
-          borderRadius: 12,
-          padding: 20,
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "Ubuntu",
-            fontStyle: "italic",
-            color: "#fff",
-            fontSize: 14,
-            fontWeight: "lighter",
-          }}
-        >
+      <div style={stylesheet.submissionContainer}>
+        <p style={stylesheet.prompt}>
           What to share? You felt this too? <br />
           This is the prompt for what we expect them to share. Provoke their
           memories and stimulate <br /> their nost-centers for memories,
