@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
 import db from "./firebaseConfiguration";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import WebFont from "webfontloader";
 import background from "./background.png";
 
 function App() {
   const fontStyle = "Kanit";
+  const [message, setMessage] = useState("");
 
   const stylesheet = {
     mainDiv: {
       backgroundImage: `url(${background})`,
       backgroundRepeat: "no-repeat",
-      backgroundSize: "stretch",
-      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundPosition: "contain",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       fontFamily: fontStyle,
       width: "100vw",
-      height: "150vh",
+      height: "100vh",
       position: "absolute",
     },
     nostagainnetwork: {
@@ -78,15 +79,24 @@ function App() {
     });
   }, []);
 
-  getDocs(collection(db, "timeinabottle")).then((resp) => {
-    console.log("DEBUG::FETCHING DATA");
-    resp.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
-  });
+  // getDocs(collection(db, "timeinabottle")).then((resp) => {
+  //   console.log("DEBUG::FETCHING DATA");
+  //   resp.forEach((doc) => {
+  //     console.log(`${doc.id} => ${doc.data()}`);
+  //   });
+  // });
 
-  function handleSubmit() {
-    console.log("DEBUG::SUBMIT");
+  async function handleSubmit() {
+    try {
+      console.log(message);
+      const docRef = await addDoc(collection(db, "timeinabottle"), {
+        message: message,
+      });
+      console.log("Document written with ID: ", docRef.id);
+      setMessage("");
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
   return (
     <div style={stylesheet.mainDiv}>
@@ -114,6 +124,8 @@ function App() {
 
         <input
           type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           style={{
             borderRadius: 10,
             display: "flex",
@@ -139,10 +151,10 @@ function App() {
           }}
           onClick={handleSubmit}
         >
-          <text>Submit</text>
+          <p>Submit</p>
         </button>
       </div>
-      <text
+      <p
         style={{
           textAlign: "center",
           paddingTop: "5%",
@@ -172,7 +184,7 @@ function App() {
         <a href="https://www.youtube.com/@nostagain" style={{ color: "#fff" }}>
           YouTube
         </a>
-      </text>
+      </p>
     </div>
   );
 }
