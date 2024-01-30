@@ -17,8 +17,8 @@ function App() {
       flexDirection: "column",
       alignItems: "center",
       fontFamily: fontStyle,
-      height: "150%",
-      width: "100%",
+      width: "100vw",
+      height: "150vh",
       position: "absolute",
     },
     nostagainnetwork: {
