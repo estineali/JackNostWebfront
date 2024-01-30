@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import storage from "./firebaseConfiguration";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import db from "./firebaseConfiguration";
+import { collection, getDocs } from "firebase/firestore";
 import WebFont from "webfontloader";
 import background from "./background.png";
 
@@ -77,6 +77,13 @@ function App() {
       },
     });
   }, []);
+
+  getDocs(collection(db, "timeinabottle")).then((resp) => {
+    console.log("DEBUG::FETCHING DATA");
+    resp.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
+  });
 
   function handleSubmit() {
     console.log("DEBUG::SUBMIT");
