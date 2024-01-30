@@ -51,14 +51,13 @@ function App() {
       fontWeight: "lighter",
       marginTop: 0,
       marginBottom: 50,
-      textAlignLast: "center",
+      textAlign: "center",
     },
     submissionContainer: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyItems: "center",
-      // backgroundColor: "#93939350",
       borderRadius: 12,
       padding: 20,
     },
@@ -100,10 +99,10 @@ function App() {
 
       <div style={stylesheet.submissionContainer}>
         <p style={stylesheet.prompt}>
-          What to share? You felt this too? <br />
-          This is the prompt for what we expect them to share. Provoke their
-          memories and stimulate <br /> their nost-centers for memories,
-          feelings, and mental images.
+          What is nostalgia? <br /> We are here because something about it
+          captures us. Can you capture it in only 140 characters?
+          <br /> Tweet away and let your thoughts take flight on the W O N D E R
+          W A L L.
         </p>
 
         <input
