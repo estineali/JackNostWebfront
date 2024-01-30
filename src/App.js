@@ -79,20 +79,12 @@ function App() {
     });
   }, []);
 
-  // getDocs(collection(db, "timeinabottle")).then((resp) => {
-  //   console.log("DEBUG::FETCHING DATA");
-  //   resp.forEach((doc) => {
-  //     console.log(`${doc.id} => ${doc.data()}`);
-  //   });
-  // });
-
   async function handleSubmit() {
     try {
-      console.log(message);
       const docRef = await addDoc(collection(db, "timeinabottle"), {
         message: message,
       });
-      console.log("Document written with ID: ", docRef.id);
+      console.log("Document written successfully");
       setMessage("");
     } catch (e) {
       console.error("Error adding document: ", e);
