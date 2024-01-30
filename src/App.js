@@ -18,7 +18,7 @@ function App() {
       alignItems: "center",
       fontFamily: fontStyle,
       width: "100vw",
-      height: "150vh",
+      height: "100vh",
       position: "absolute",
     },
     nostagainnetwork: {
