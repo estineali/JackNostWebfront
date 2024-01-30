@@ -117,7 +117,7 @@ function App() {
       <div style={stylesheet.submissionContainer}>
         <p style={stylesheet.prompt}>
           What is nostalgia? <br /> We are here because something about it
-          captures us. Can you capture it in only 140 characters?
+          captures us. Can you capture it in only 100 characters?
           <br /> Tweet away and let your thoughts take flight on the W O N D E R
           W A L L.
         </p>
@@ -134,8 +134,8 @@ function App() {
             fontFamily: fontStyle,
             fontStyle: "italic",
           }}
-          maxLength={140}
-          placeholder="Maximum 140 characters"
+          maxLength={100}
+          placeholder="Maximum 100 characters"
         />
         <button
           style={{
