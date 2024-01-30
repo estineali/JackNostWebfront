@@ -38,15 +38,16 @@ function App() {
     },
     title: {
       color: "#ffffff",
-      fontSize: 60,
+      fontSize: 40,
       textAlign: "center",
       marginBottom: 0,
+      marginTop: 0,
     },
     subtitle: {
       fontFamily: "Ubuntu",
       fontStyle: "italic",
       color: "#fff",
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: "lighter",
       marginTop: 0,
       marginBottom: 50,
@@ -64,7 +65,7 @@ function App() {
       fontFamily: "Ubuntu",
       fontStyle: "italic",
       color: "#fff",
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: "lighter",
     },
   };
