@@ -11,14 +11,14 @@ function App() {
     mainDiv: {
       backgroundImage: `url(${background})`,
       backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
+      backgroundSize: "stretch",
       backgroundPosition: "center",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       fontFamily: fontStyle,
       width: "100vw",
-      height: "100vh",
+      height: "150vh",
       position: "absolute",
     },
     nostagainnetwork: {
