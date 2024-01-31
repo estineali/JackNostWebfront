@@ -3,6 +3,7 @@ import db from "./firebaseConfiguration";
 import { collection, addDoc } from "firebase/firestore";
 import WebFont from "webfontloader";
 import background from "./background.png";
+import Swal from "sweetalert2";
 
 const BottomLinks = () => {
   return (
@@ -140,26 +141,45 @@ const MessageBox = (props) => {
     <div style={stylesheet.submissionContainer}>
       <p style={stylesheet.prompt}>
         What is nostalgia? <br /> We are here because something about it
-        captures us. Can you capture it in only 100 characters?
+        captures us. Can you capture it in less than 100 characters?
         <br /> Tweet away and let your thoughts take flight on the W O N D E R W
         A L L.
       </p>
-
-      <input
-        type="text"
-        value={props.value}
-        onChange={(e) => props.onChange(e.target.value)}
+      <div
         style={{
-          borderRadius: 10,
           display: "flex",
           width: "100%",
-          minHeight: 100,
-          fontFamily: fontStyle,
-          fontStyle: "italic",
+          height: "100%",
+          flexDirection: "column",
         }}
-        maxLength={100}
-        placeholder="Maximum 100 characters"
-      />
+      >
+        <input
+          type="text"
+          value={props.value}
+          onChange={(e) => props.onChange(e.target.value)}
+          style={{
+            borderRadius: 10,
+            display: "flex",
+            width: "100%",
+            minHeight: 100,
+            fontFamily: fontStyle,
+            fontStyle: "italic",
+          }}
+          maxLength={100}
+          placeholder="Your message here..."
+        />
+        <p
+          style={{
+            fontFamily: fontStyle,
+            color: "#fff",
+            fontSize: 10,
+            alignSelf: "flex-end",
+          }}
+        >
+          {`${props.value.length}/100`}
+        </p>
+      </div>
+
       <button style={stylesheet.submitButton} onClick={props.onSubmit}>
         <p style={{ alignSelf: "center", padding: 0 }}>Submit</p>
       </button>
@@ -180,15 +200,36 @@ const App = () => {
 
   async function handleSubmit() {
     if (message.length == 0) {
+      Swal.fire({
+        title: "Error!",
+        heightAuto: false,
+        text: "Unable to send message",
+        icon: "error",
+        confirmButtonText: "Return",
+      });
       return;
     }
     try {
-      const docRef = await addDoc(collection(db, "timeinabottle"), {
+      await addDoc(collection(db, "timeinabottle"), {
         message: message,
       });
-      console.log("Document written successfully");
+
+      Swal.fire({
+        title: "Message Sent!",
+        heightAuto: false,
+        text: "Message sent to wall, go have a look!",
+        icon: "success",
+        confirmButtonText: "YAY",
+      });
       setMessage("");
     } catch (e) {
+      Swal.fire({
+        title: "Error!",
+        heightAuto: false,
+        text: "Unable to send message",
+        icon: "error",
+        confirmButtonText: "Return",
+      });
       console.error("Error adding document: ", e);
     }
   }
